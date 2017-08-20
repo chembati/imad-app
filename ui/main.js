@@ -48,18 +48,34 @@ button.onclick = function() {
 }
 
 //Submit name
-var nameInput = document.getElementById('name');
-var name = nameInput.value;
 var submit = document.getElementById('submit_btn');
 submit.onclick = function() {
     // Make a request to a server and and send the name
     
-    // Capture the list of names and render it as a list
-    var names = ['name1','name2','name3','name4'];
+    var nameInput = document.getElementById('name');
+    var name = nameInput.value;
+    // Create a request
+    var request = new XMLHttpRequest();
+    
+    // Make a request
+    request.open('GET','http://sivachembati.imad.hasura-app.io/submit-name?name=' + name,true);
+    request.send(null);
+    
+    // Capure the response and store it in a variable
+    request.onreadystatechange = function() {
+        if(request.readyState === XMLHttpRequest.DONE) {
+            if(request.status === 200) {
+                // Capture the list of names and render it as a list
+    var names = request.responseText;
+    names = JSON.parse(names);
     var list = '';
     for(var i=0;i<<names.length;i++) {
         list += '<li>' + names[i] + '</li>';
     }
     var ul = document.getElementById('namelist');
     ul.innerHTML=list;
+            }
+        }
+    }
+   
 };
