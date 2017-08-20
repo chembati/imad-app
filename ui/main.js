@@ -56,11 +56,7 @@ submit.onclick = function() {
     // Create a request
     var request = new XMLHttpRequest();
     
-    var nameInput = document.getElementById('name');
-    var name = nameInput.value;
-    // Make a request
-    request.open('GET','http://sivachembati.imad.hasura-app.io/submit-name?name=' + name,true);
-    request.send(null);
+   
     
     // Capure the response and store it in a variable
     request.onreadystatechange = function() {
@@ -78,5 +74,11 @@ submit.onclick = function() {
             }
         }
     }
+    
+     var nameInput = document.getElementById('name');
+    var name = nameInput.value;
+    // Make a request
+    request.open('GET','http://sivachembati.imad.hasura-app.io/submit-name?name=' + name,true);
+    request.send(null);
    
 };
