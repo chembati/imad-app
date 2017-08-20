@@ -53,7 +53,7 @@ submit.onclick = function() {
     // Make a request to a server and and send the name
     var nameInput = document.getElementById('name');
     var name = nameInput.value;
-   
+   alert("name:" + name)
     
     // Create a request
     var request = new XMLHttpRequest();
