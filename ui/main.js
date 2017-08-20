@@ -52,11 +52,12 @@ var submit = document.getElementById('submit_btn');
 submit.onclick = function() {
     // Make a request to a server and and send the name
     
-    var nameInput = document.getElementById('name');
-    var name = nameInput.value;
+    
     // Create a request
     var request = new XMLHttpRequest();
     
+    var nameInput = document.getElementById('name');
+    var name = nameInput.value;
     // Make a request
     request.open('GET','http://sivachembati.imad.hasura-app.io/submit-name?name=' + name,true);
     request.send(null);
