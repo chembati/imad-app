@@ -25,7 +25,7 @@ var button = document.getElementById('counter');
 button.onclick = function() {
     
     // Create a request
-    var request = XMLHttpRequest();
+    var request = new XMLHttpRequest();
     
     // Make a request
     request.open('GET','http://sivachembati.imad.hasura-app.io/counter',true);
